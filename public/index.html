@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Todo App</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="app">
-    <h1>Todo List</h1>
-    <input type="text" id="taskInput" placeholder="New task" />
-    <button onclick="addTask()">Add Task</button>
-    <ul id="taskList"></ul>
-  </div>
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
-  <script src="app.js"></script>
+    <div id="app">
+        <h1>Todo List</h1>
+        <input type="text" id="taskInput" placeholder="New task" />
+        <button id="addTaskButton">Add Task</button> <!-- Added ID here -->
+        <ul id="taskList"></ul>
+    </div>
+    
+    <script type="module">
+      import { addTask, loadTasks } from './app.js';
+    
+      document.getElementById("addTaskButton").onclick = addTask; // Now this will work
+      document.addEventListener("DOMContentLoaded", loadTasks);
+    </script>
 </body>
 </html>
